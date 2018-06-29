@@ -9,11 +9,11 @@ class Die(object):
 
     def __init__(self, num_sides=None):
         """Create with sides from 1 to <num_sides>."""
-        # Handle inputs
+        # Handle input
         if not isinstance(num_sides, int):
-            raise TypeError('num_sides of Die must be an integer')
+            raise TypeError('num_sides of Die must be an integer.')
         elif num_sides < 0:
-            raise ValueError('num_sides of Die must be >= 0')
+            raise ValueError('num_sides of Die must be >= 0.')
 
         self.values = range(1, 1+num_sides)
         """Range of face values"""
@@ -40,12 +40,16 @@ class Die(object):
 
         # TODO:All dice are the same, add UIDs to track individual dice
 
-    def roll(self):
-        """Roll the die and return a value."""
+    def roll(self, num_rolls):
+        """Roll N dice and return a list of values."""
+
+        # Check Die
         if not self.values:
-            raise ValueError('Values must not be empty.')
-        #TODO:Support multiple rolls at a time
-        return self.values[randint(0, len(self.values)-1)]
+            raise ValueError('Values must not be empty in order to Die.roll().')
+
+        # Roll <num_rolls> times
+        rolls = [randint(0, len(self.values)-1) for i in range(num_rolls)]
+        return [self.values[i] for i in rolls]
 
 
 # Self-test
