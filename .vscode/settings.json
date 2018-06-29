@@ -1,4 +1,11 @@
 {
     // Editor Settings
     "editor.tabSize": 4,
+
+    // Pylint Settings
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintUseMinimalCheckers": false,
+    "python.linting.pydocstyleEnabled": true,
+    
 }
